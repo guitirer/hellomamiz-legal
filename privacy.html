@@ -7,118 +7,170 @@
   <style>
     :root {
       --gradient-start: #7f5cff;
-      --gradient-end: #ff79ac;
-      --primary-dark: #30265f;
-      --text-muted: #6d6d6d;
-      --surface: #ffffff;
-      --surface-alt: #f8f7ff;
+      --gradient-end: #ff7fb0;
+      --bg-soft: #f7f4ff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --text-strong: #2d2460;
+      --text-body: #2f2f3a;
+      --text-muted: #6e6a80;
+      --accent: #ff79ab;
+      --border-soft: rgba(127, 92, 255, 0.14);
+      --shadow: 0 28px 50px rgba(88, 63, 190, 0.12);
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(145deg, var(--surface-alt) 0%, #fef6fb 100%);
-      color: #1f1f1f;
-      line-height: 1.7;
+      background: linear-gradient(160deg, var(--bg-soft) 0%, #fff8fb 100%);
+      color: var(--text-body);
+      line-height: 1.75;
     }
+
     header {
-      padding: 3.5rem 1.5rem 4rem;
+      padding: 3.6rem 1.5rem 4.2rem;
       text-align: center;
       color: white;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 40%),
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 45%),
                   linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
       position: relative;
       overflow: hidden;
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.25);
     }
-    header::after,
-    header::before {
+
+    header::before,
+    header::after {
       content: "";
       position: absolute;
       border-radius: 50%;
-      opacity: 0.22;
+      opacity: 0.25;
       filter: blur(0.5px);
     }
-    header::after {
-      width: 280px;
-      height: 280px;
-      background: rgba(255,255,255,0.35);
-      bottom: -120px;
-      right: -60px;
-    }
+
     header::before {
-      width: 220px;
-      height: 220px;
-      background: rgba(255,255,255,0.25);
+      width: 240px;
+      height: 240px;
+      background: rgba(255,255,255,0.3);
       top: -120px;
-      left: -40px;
+      left: -50px;
     }
+
+    header::after {
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.2);
+      bottom: -140px;
+      right: -70px;
+    }
+
     header h1 {
-      margin: 0 auto 0.6rem;
-      font-size: clamp(2.1rem, 4vw, 2.8rem);
-      letter-spacing: 0.02em;
-    }
-    header p {
       margin: 0;
-      font-size: 1.05rem;
+      font-size: clamp(2.3rem, 4vw, 2.9rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    header p {
+      margin: 0.8rem auto 0;
+      max-width: 560px;
+      font-size: 1.08rem;
       opacity: 0.9;
     }
+
     main {
       max-width: 960px;
-      margin: -2.5rem auto 3.5rem;
-      background: var(--surface);
-      padding: 2.75rem 2.25rem 3rem;
-      border-radius: 28px;
-      box-shadow: 0 25px 45px rgba(64,32,114,0.1);
+      margin: -2.8rem auto 4rem;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(18px);
+      border-radius: 34px;
+      padding: 3rem 2.5rem 3.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.45);
     }
-    section { margin-bottom: 2.75rem; }
+
+    section { margin-bottom: 2.8rem; }
+
     h2 {
-      color: var(--primary-dark);
-      font-size: 1.65rem;
-      margin-bottom: 1.1rem;
+      color: var(--text-strong);
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
     }
+
     h3 {
-      color: #4b3c97;
+      color: #4b3e91;
       font-size: 1.2rem;
-      margin-top: 1.5rem;
+      margin-top: 1.6rem;
     }
+
     p, li {
-      font-size: 1.02rem;
-      color: #303030;
+      font-size: 1.05rem;
+      color: var(--text-body);
     }
+
     ul {
-      padding-left: 1.35rem;
-      margin-top: 0.5rem;
+      padding-left: 1.3rem;
+      margin: 0.5rem 0 0;
     }
-    li { margin-bottom: 0.35rem; }
-    a { color: #6b50ff; text-decoration: none; }
+
+    li { margin-bottom: 0.4rem; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     a:hover { text-decoration: underline; }
+
     .contact-card {
-      background: linear-gradient(135deg, rgba(127,92,255,0.12), rgba(255,121,172,0.12));
-      border-radius: 22px;
-      padding: 1.8rem;
-      margin-bottom: 2.5rem;
-      box-shadow: inset 0 0 0 1px rgba(127,92,255,0.08);
+      display: grid;
+      gap: 0.6rem;
+      padding: 1.8rem 2rem;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(127,92,255,0.12), rgba(255,121,172,0.15));
+      box-shadow: inset 0 0 0 1px var(--border-soft);
+      margin-bottom: 2.8rem;
     }
-    .signature {
-      background: rgba(240, 239, 255, 0.75);
-      border-radius: 14px;
-      padding: 0.85rem 1.2rem;
-      font-size: 0.95rem;
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
       color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
-    footer {
+
+    .signature {
       max-width: 960px;
       margin: 0 auto 3rem;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        margin: -2.2rem 1rem 3rem;
+        padding: 2rem 1.4rem 2.6rem;
+      }
+      header { padding: 3rem 1.2rem 3.4rem; }
     }
   </style>
 </head>
 <body>
   <header>
+    <div class="pill">Confidentialité & confiance</div>
     <h1>Politique de Confidentialité HelloMamiz</h1>
-    <p>Nous protégeons les mamans & leurs communautés avec une approche conforme au RGPD.</p>
+    <p>Nous protégeons les mamans et leurs communautés avec une approche conforme au RGPD. Voici comment nous collectons, traitons et sécurisons vos données.</p>
   </header>
 
   <main>
@@ -130,7 +182,7 @@
 
     <section>
       <h2>1. Responsable du traitement</h2>
-      <p>HelloMamiz SAS met tout en œuvre pour assurer la confidentialité et la sécurité de vos données personnelles. Notre DPO est disponible pour répondre à vos questions ou demandes d'exercice de droits.</p>
+      <p>HelloMamiz SAS s’engage à garantir la confidentialité et la sécurité de vos données personnelles. Notre DPO est disponible pour toute question ou exercice de droits.</p>
     </section>
 
     <section>
@@ -168,81 +220,75 @@
 
     <section>
       <h2>3. Finalités du traitement</h2>
-      <p>Nous utilisons vos données pour :</p>
       <ul>
-        <li>Fournir notre service (matching, messagerie, marketplace, etc.)</li>
-        <li>Améliorer et personnaliser votre expérience</li>
-        <li>Assurer la sécurité de la plateforme</li>
-        <li>Communiquer avec vous (support, informations service)</li>
-        <li>Vous envoyer des communications marketing (avec votre consentement spécifique)</li>
-        <li>Respecter nos obligations légales</li>
+        <li>Fournir notre service (matching, messagerie, marketplace, événements)</li>
+        <li>Améliorer et personnaliser l’expérience utilisateur</li>
+        <li>Assurer la sécurité et la modération</li>
+        <li>Communiquer avec vous (support, actualités, alertes)</li>
+        <li>Envoyer des communications marketing (avec votre consentement explicite)</li>
+        <li>Répondre à nos obligations légales</li>
       </ul>
     </section>
 
     <section>
-      <h2>4. Base légale du traitement</h2>
+      <h2>4. Base légale</h2>
       <ul>
         <li>Exécution du contrat (CGU) pour les fonctionnalités principales</li>
-        <li>Consentement explicite pour : géolocalisation précise, communications marketing, certains cookies</li>
-        <li>Intérêt légitime pour : sécurité, amélioration du service, prévention des fraudes</li>
+        <li>Consentement explicite pour la géolocalisation précise, les communications marketing, certains cookies</li>
+        <li>Intérêt légitime pour la sécurité, l’amélioration du service, la prévention des fraudes</li>
         <li>Obligation légale pour certains traitements spécifiques</li>
       </ul>
     </section>
 
     <section>
-      <h2>5. Destinataires des données</h2>
+      <h2>5. Destinataires</h2>
       <ul>
-        <li>Notre personnel autorisé</li>
-        <li>Nos prestataires techniques (hébergement, analyse, paiement)</li>
+        <li>Personnel autorisé HelloMamiz</li>
+        <li>Prestataires techniques (hébergement, analytics, messagerie)</li>
         <li>Autorités compétentes sur demande légale</li>
-        <li>Vos données ne sont jamais vendues à des tiers sans votre consentement explicite</li>
+        <li>Aucun partage ou vente de données sans consentement explicite</li>
       </ul>
     </section>
 
     <section>
       <h2>6. Transferts hors UE</h2>
-      <p>En cas de transfert hors de l'Union Européenne, nous garantissons un niveau de protection adéquat (clauses contractuelles types approuvées par la Commission européenne).</p>
+      <p>Nous garantissons un niveau de protection adéquat (clauses contractuelles types approuvées par la Commission Européenne) pour tout transfert hors UE.</p>
     </section>
 
     <section>
       <h2>7. Durée de conservation</h2>
       <ul>
-        <li>Données du compte : conservées tant que votre compte est actif</li>
-        <li>Après suppression : archivage limité selon obligations légales</li>
-        <li>Données de transaction : conservées selon obligations comptables et fiscales</li>
-        <li>Cookies : selon leur finalité (voir notre politique de cookies)</li>
+        <li>Données du compte : tant que le compte est actif</li>
+        <li>Après suppression : archivage limité conforme aux obligations légales</li>
+        <li>Données de transaction : selon les obligations comptables et fiscales</li>
+        <li>Cookies : selon leur finalité (voir politique de cookies)</li>
       </ul>
     </section>
 
     <section>
       <h2>8. Vos droits</h2>
-      <p>Conformément au RGPD :</p>
+      <p>Conformément au RGPD, vous disposez des droits suivants :</p>
       <ul>
-        <li>Droit d'accès</li>
-        <li>Droit de rectification</li>
-        <li>Droit à l'effacement</li>
-        <li>Droit à la limitation</li>
-        <li>Droit à la portabilité</li>
-        <li>Droit d'opposition</li>
-        <li>Droit de retirer votre consentement</li>
-        <li>Droit d'introduire une réclamation auprès d'une autorité de contrôle</li>
+        <li>Accès, rectification, effacement</li>
+        <li>Limitation ou opposition au traitement</li>
+        <li>Portabilité des données</li>
+        <li>Retrait du consentement à tout moment</li>
+        <li>Réclamation auprès d’une autorité de contrôle</li>
       </ul>
-      <p>Pour exercer vos droits : <a href="mailto:hellomamiz@gmail.com">hellomamiz@gmail.com</a> ou via les paramètres du compte dans l'application.</p>
+      <p>Pour exercer vos droits : <a href="mailto:hellomamiz@gmail.com">hellomamiz@gmail.com</a> ou via le Centre de confidentialité dans l’application.</p>
     </section>
 
     <section>
-      <h2>9. Sécurité des données</h2>
-      <p>Mesures techniques et organisationnelles : cryptage, accès restreint, audits réguliers.</p>
+      <h2>9. Sécurité</h2>
+      <p>Nous mettons en œuvre des mesures techniques et organisationnelles adaptées : chiffrement, contrôle d’accès, audits réguliers, surveillance des incidents.</p>
     </section>
 
     <section>
-      <h2>10. Cookies et traceurs</h2>
-      <p>Utilisation de cookies et technologies similaires pour améliorer votre expérience. Les préférences peuvent être gérées dans l'application. Pour plus de détails, consultez notre politique de cookies.</p>
+      <h2>10. Cookies & traceurs</h2>
+      <p>Des cookies sont utilisés pour les fonctionnalités essentielles et l’amélioration de l’expérience. Vous pouvez gérer vos préférences directement dans l’application.</p>
     </section>
   </main>
 
-  <footer>
-    <p class="signature">HelloMamiz – le réseau chaleureux des mamans. © 2025 HelloMamiz SAS.</p>
-  </footer>
+  <div class="signature">HelloMamiz – le réseau chaleureux des mamans · © 2025 HelloMamiz SAS.</div>
 </body>
 </html>
