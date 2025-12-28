@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Sécurité des Enfants – HelloMamiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f7f2ff 0%, #fff3f8 35%, #f5f8ff 100%);
+      --primary: #6d53ff;
+      --primary-dark: #2c2360;
+      --accent: #ff7bba;
+      --surface: rgba(255,255,255,0.85);
+      --surface-strong: rgba(255,255,255,0.95);
+      --border-soft: rgba(123, 96, 255, 0.18);
+      --shadow-soft: 0 25px 55px rgba(92, 72, 190, 0.18);
+      --text-body: #2f2f3a;
+      --text-muted: #6f6a81;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1.5rem 5rem;
+      color: white;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.20), transparent 48%),
+                  linear-gradient(125deg, #7059ff 0%, #9f6bff 45%, #ff80b5 95%);
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before, header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      filter: blur(0.8px);
+      opacity: 0.5;
+    }
+
+    header::before {
+      width: 320px; height:320px;
+      top: -140px; left: -120px;
+    }
+
+    header::after {
+      width: 360px; height:360px;
+      bottom: -150px; right: -150px;
+    }
+
+    header h1 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+      letter-spacing: 0.02em;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 640px;
+      font-size: 1.12rem;
+      opacity: 0.92;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.28);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+
+    main {
+      max-width: 1040px;
+      margin: -3rem auto 4.5rem;
+      background: var(--surface);
+      border-radius: 34px;
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.55);
+      padding: 3.5rem 3rem 4rem;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 0.8rem;
+      padding: 2rem 2.4rem;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(109,83,255,0.12), rgba(255,123,186,0.16));
+      box-shadow: inset 0 0 0 1px var(--border-soft);
+      margin-bottom: 3.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      bottom: -120px;
+      right: -60px;
+      pointer-events: none;
+    }
+
+    .alert-card {
+      display: grid;
+      gap: 0.8rem;
+      padding: 2rem 2.4rem;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(255,59,48,0.12), rgba(255,149,0,0.16));
+      box-shadow: inset 0 0 0 1px rgba(255,59,48,0.25);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section { margin-bottom: 3rem; }
+
+    h2 {
+      color: var(--primary-dark);
+      font-size: 1.75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h3 {
+      color: #4b3f92;
+      font-size: 1.24rem;
+      margin-top: 1.7rem;
+    }
+
+    p, li { font-size: 1.05rem; }
+
+    ul { padding-left: 1.35rem; margin-top: 0.4rem; }
+    li { margin-bottom: 0.45rem; }
+
+    a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .signature {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 0.98rem;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(52,199,89,0.15), rgba(48,209,88,0.20));
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #34c759;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(255,59,48,0.10), rgba(255,69,58,0.15));
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #ff3b30;
+    }
+
+    @media (max-width: 820px) {
+      main { margin: -2.5rem 1.2rem 3.5rem; padding: 2.4rem 1.5rem 2.8rem; }
+      .contact-card, .alert-card { padding: 1.8rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="pill">Protection & Sécurité</div>
+    <h1>Normes de Sécurité des Enfants</h1>
+    <p>HelloMamiz s'engage fermement à protéger les mineurs et à lutter contre toute forme d'exploitation ou d'abus. Découvrez nos mesures et nos engagements.</p>
+  </header>
+
+  <main>
+    <div class="contact-card">
+      <strong>Dernière mise à jour :</strong> 28 décembre 2024<br />
+      <strong>Application :</strong> HelloMamiz - Réseau social pour parents<br />
+      <strong>Contact sécurité :</strong> <a href="mailto:hellomamizapp@gmail.com">hellomamizapp@gmail.com</a>
+    </div>
+
+    <section>
+      <h2>1. Notre engagement</h2>
+      <p>HelloMamiz est une application destinée exclusivement aux <strong>adultes de 18 ans et plus</strong>. Nous nous engageons à :</p>
+      <ul>
+        <li>Protéger tous les utilisateurs, en particulier les mineurs mentionnés dans les profils (enfants des utilisateurs)</li>
+        <li>Lutter activement contre l'exploitation et les abus sexuels sur mineurs (CSAM)</li>
+        <li>Coopérer pleinement avec les autorités compétentes</li>
+        <li>Maintenir un environnement sûr et bienveillant pour notre communauté de parents</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Accès réservé aux adultes</h2>
+      <div class="highlight-box">
+        <strong>Certification obligatoire :</strong> Lors de l'inscription, chaque utilisateur doit certifier être majeur (18 ans ou plus). Cette certification est obligatoire et non contournable.
+      </div>
+      <p>Les informations concernant les enfants (âge, surnom) sont uniquement destinées à faciliter la mise en relation entre parents d'enfants du même âge. Ces informations ne sont jamais partagées publiquement de manière identifiable.</p>
+    </section>
+
+    <section>
+      <h2>3. Contenus strictement interdits</h2>
+      <div class="warning-box">
+        <strong>Tolérance zéro</strong> pour les contenus suivants :
+      </div>
+      <ul>
+        <li>Tout contenu sexuel ou suggestif impliquant des mineurs</li>
+        <li>Tout contenu présentant des mineurs dans des situations inappropriées</li>
+        <li>Sollicitation ou approche inappropriée de mineurs</li>
+        <li>Partage d'informations permettant d'identifier ou de localiser des mineurs</li>
+        <li>Tout contenu promouvant ou normalisant les abus sur mineurs</li>
+        <li>Grooming ou manipulation psychologique visant des mineurs</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Système de signalement</h2>
+      <p>Nous encourageons tous nos utilisateurs à signaler tout contenu ou comportement suspect :</p>
+      <h3>Comment signaler ?</h3>
+      <ul>
+        <li><strong>Dans l'application :</strong> Menu Profil > Signaler un problème</li>
+        <li><strong>Par email :</strong> <a href="mailto:hellomamizapp@gmail.com">hellomamizapp@gmail.com</a></li>
+        <li><strong>Signalement urgent :</strong> Mentionnez "URGENT - Sécurité enfant" dans l'objet</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>Confidentialité garantie :</strong> Tous les signalements sont traités de manière confidentielle. L'identité du signalant n'est jamais révélée à la personne signalée.
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Processus de modération</h2>
+      <p>Notre équipe de modération suit un protocole strict :</p>
+      <ul>
+        <li><strong>Examen prioritaire :</strong> Les signalements liés à la sécurité des enfants sont traités en priorité absolue, sous 24 heures maximum</li>
+        <li><strong>Suspension immédiate :</strong> En cas de suspicion, le compte est suspendu préventivement pendant l'enquête</li>
+        <li><strong>Suppression définitive :</strong> Les comptes en infraction sont définitivement bannis</li>
+        <li><strong>Conservation des preuves :</strong> Les contenus illicites sont conservés uniquement pour transmission aux autorités</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Coopération avec les autorités</h2>
+      <p>HelloMamiz coopère pleinement avec les forces de l'ordre et les autorités compétentes :</p>
+      <ul>
+        <li>Signalement systématique de tout contenu CSAM aux autorités compétentes</li>
+        <li>Transmission des données sur réquisition judiciaire</li>
+        <li>Collaboration avec les organisations de protection de l'enfance</li>
+        <li>Participation aux programmes de signalement (ex: NCMEC pour les contenus détectés)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Mesures techniques de protection</h2>
+      <ul>
+        <li>Vérification de l'âge lors de l'inscription</li>
+        <li>Filtres automatiques de détection de contenus inappropriés</li>
+        <li>Surveillance des comportements suspects</li>
+        <li>Chiffrement des communications</li>
+        <li>Journalisation sécurisée des activités pour enquêtes éventuelles</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Éducation et sensibilisation</h2>
+      <p>Nous sensibilisons notre communauté :</p>
+      <ul>
+        <li>Rappels réguliers des règles de sécurité</li>
+        <li>Conseils pour protéger la vie privée de vos enfants en ligne</li>
+        <li>Ressources pour reconnaître les comportements suspects</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>9. Contact</h2>
+      <p>Pour toute question concernant nos normes de sécurité des enfants ou pour signaler un problème :</p>
+      <div class="contact-card">
+        <strong>Email :</strong> <a href="mailto:hellomamizapp@gmail.com">hellomamizapp@gmail.com</a><br />
+        <strong>Objet :</strong> [Sécurité Enfants] Votre message<br />
+        <strong>Délai de réponse :</strong> 24-48 heures (prioritaire pour les urgences)
+      </div>
+    </section>
+
+    <div class="alert-card">
+      <strong>En cas d'urgence immédiate</strong><br />
+      Si vous pensez qu'un enfant est en danger immédiat, contactez directement les autorités locales (police, gendarmerie) ou le 119 (Enfance en danger).
+    </div>
+  </main>
+
+  <div class="signature">HelloMamiz – le réseau chaleureux des mamans • © 2024 HelloMamiz.</div>
+</body>
+</html>
